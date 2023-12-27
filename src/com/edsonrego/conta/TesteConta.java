@@ -9,37 +9,12 @@ public class TesteConta {
 
         Conta contaDoJose = new Conta("Jose", "456", 30.0);
 
-        sacar(20.0, contaDaMaria);
+        contaDaMaria.sacar(20.0);
 
-        transferir(35.0, contaDaMaria, contaDoJose);
+        contaDaMaria.transferir(35.0, contaDoJose);
 
-        pagar(55.0, contaDaMaria);
+        contaDaMaria.pagar(55.0);
 
-        System.out.println(contaDaMaria.saldo);
-    }
-
-    public static void sacar(double valor, Conta conta) {
-        if (conta.saldo > valor) {
-            conta.saldo -= valor;
-        } else {
-            System.out.println("Saldo insuficiente para saque!");
-        }
-    }
-
-    public static void transferir(double valor, Conta contaOrigem, Conta contaDestino) {
-        if (contaOrigem.saldo > valor) {
-            contaOrigem.saldo -= valor;
-            contaDestino.saldo += valor;
-        } else {
-            System.out.println("Saldo insuficiente para transferencia!");
-        }
-    }
-
-    public static void pagar(double valor, Conta conta) {
-        if (conta.saldo > conta.saldo) {
-            conta.saldo -= valor;
-        } else {
-            System.out.println("Saldo insuficiente para pagamento!");
-        }
+        System.out.println(contaDaMaria.getSaldo()); // -10.0
     }
 }
