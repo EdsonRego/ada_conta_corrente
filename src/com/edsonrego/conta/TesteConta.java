@@ -15,16 +15,31 @@ public class TesteConta {
 
         pagar(55.0, contaDaMaria);
 
-        System.out.println(contaDaMaria.saldo); // -10.0
+        System.out.println(contaDaMaria.saldo);
     }
+
     public static void sacar(double valor, Conta conta) {
-        conta.saldo -= valor;
+        if (conta.saldo > valor) {
+            conta.saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente para saque!");
+        }
     }
+
     public static void transferir(double valor, Conta contaOrigem, Conta contaDestino) {
-        contaOrigem.saldo -= valor;
-        contaDestino.saldo += valor;
+        if (contaOrigem.saldo > valor) {
+            contaOrigem.saldo -= valor;
+            contaDestino.saldo += valor;
+        } else {
+            System.out.println("Saldo insuficiente para transferencia!");
+        }
     }
+
     public static void pagar(double valor, Conta conta) {
-        conta.saldo -= valor;
+        if (conta.saldo > conta.saldo) {
+            conta.saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente para pagamento!");
+        }
     }
 }
